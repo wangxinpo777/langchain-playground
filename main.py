@@ -91,7 +91,7 @@ def main():
         else:
             # 单次问答：不启用对话历史
             chain = build_rag_chain(store, enable_history=False)
-            chain.invoke(args.question, config={"callbacks": [DebugCallbackHandler()]})
+            chain.invoke({"question": args.question}, config={"callbacks": [DebugCallbackHandler()]})
             print()
 
     except Exception as e:

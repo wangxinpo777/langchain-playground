@@ -8,7 +8,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.runnables import RunnablePassthrough
+
 from langchain_openai import ChatOpenAI
 
 from config import (
@@ -66,7 +66,11 @@ def build_rag_chain(store: Chroma, enable_history: bool = False):
     )
 
     chain = (
-        {"context": retriever | format_docs, "question": RunnablePassthrough()}
+        {
+            "context": (lambda x: x["question"]) | retriever | format_docs,
+            "question": lambda x: x["question"],
+            **({"chat_history": lambda x: x.get("chat_history", [])} if enable_history else {}),
+        }
         | prompt
         | llm
         | StrOutputParser()

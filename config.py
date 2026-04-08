@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # DeepSeek API 配置
-API_KEY = os.environ["DEEPSEEK_API_KEY"]
+API_KEY = os.environ["LLM_API_KEY"]
 BASE_URL = "https://api.deepseek.com/v1"
 MODEL_NAME = "deepseek-chat"
 TEMPERATURE = 0
