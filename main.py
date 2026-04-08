@@ -15,7 +15,7 @@ from loader import load_documents
 from vector_store import build_vector_store
 from rag_chain import build_rag_chain
 from chat_history import build_conversational_chain
-from CallbackHandler import DebugCallbackHandler
+from callback_handler import DebugCallbackHandler
 
 
 def interactive_mode(chain):
@@ -40,7 +40,7 @@ def interactive_mode(chain):
 
             print()
             chain.invoke(
-                {"question": question},
+                {"input": question},
                 config={
                     "configurable": {"session_id": session_id},
                     "callbacks": [DebugCallbackHandler()]
@@ -91,7 +91,7 @@ def main():
         else:
             # 单次问答：不启用对话历史
             chain = build_rag_chain(store, enable_history=False)
-            chain.invoke({"question": args.question}, config={"callbacks": [DebugCallbackHandler()]})
+            chain.invoke({"input": args.question}, config={"callbacks": [DebugCallbackHandler()]})
             print()
 
     except Exception as e:

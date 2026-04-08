@@ -11,6 +11,7 @@
 - ✅ **多轮对话** — 交互模式下支持上下文连贯的多轮问答
 - ✅ **错误处理** — 完善的异常捕获和友好提示
 - ✅ **交互式问答** — REPL 模式，无需重启程序
+- ✅ **自主检索决策** — 基于 AgentExecutor 的工具调用架构，模型自主判断是否需要检索知识库，自动执行检索并整合结果
 
 ## 快速开始
 
@@ -30,7 +31,7 @@ cp .env.example .env
 
 编辑 `.env`：
 
-```
+```env
 DEEPSEEK_API_KEY=your_api_key_here
 ```
 
@@ -61,15 +62,16 @@ python main.py --rebuild
 
 ## 项目结构
 
-```
+```text
 .
 ├── main.py              # 入口文件
 ├── config.py            # 全局配置
 ├── loader.py            # 文档加载模块
 ├── vector_store.py      # 向量库构建模块
-├── rag_chain.py         # RAG 链组装模块
+├── rag_chain.py         # Agent 构建模块（AgentExecutor）
 ├── chat_history.py      # 对话历史管理模块
-├── CallbackHandler.py   # 调试回调处理器
+├── tools.py             # 检索工具模块
+├── callback_handler.py  # 调试回调处理器
 ├── requirements.txt     # 依赖列表
 ├── .env                 # 环境变量（不提交到 Git）
 ├── .env.example         # 环境变量模板

@@ -35,7 +35,7 @@ def build_conversational_chain(base_chain):
     conversational_chain = RunnableWithMessageHistory(
         base_chain,
         history_manager.get_session_history,
-        input_messages_key="question",
+        input_messages_key="input",
         history_messages_key="chat_history",
     )
 
