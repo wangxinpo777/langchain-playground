@@ -2,8 +2,13 @@
 全局配置常量
 """
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # DeepSeek API 配置
-API_KEY = "sk-38edce4f0bea49fca058e32cedb96886"
+API_KEY = os.environ["DEEPSEEK_API_KEY"]
 BASE_URL = "https://api.deepseek.com/v1"
 MODEL_NAME = "deepseek-chat"
 TEMPERATURE = 0
@@ -15,8 +20,11 @@ CHUNK_OVERLAP = 40
 # 检索参数
 RETRIEVER_TOP_K = 3
 
-# Embedding 模型
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+# Embedding 模型（中文优化）
+EMBEDDING_MODEL = "BAAI/bge-small-zh-v1.5"
+
+# Chroma 向量库持久化目录
+CHROMA_DIR = "./chroma_db"
 
 # 提示词模板
 PROMPT_TEMPLATE = """\
