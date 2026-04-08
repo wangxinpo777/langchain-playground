@@ -201,7 +201,7 @@ cp .env.example .env
 编辑 `.env` 文件，填入你的 DeepSeek API Key（在 [platform.deepseek.com](https://platform.deepseek.com) 免费注册获取）：
 
 ```env
-DEEPSEEK_API_KEY=your_api_key_here
+LLM_API_KEY=your_api_key_here
 ```
 
 ### 运行示例
