@@ -34,6 +34,11 @@
 | 多轮对话 | 交互模式下支持上下文连贯的连续问答 |
 | 流式输出 | 回答实时逐字打印，体验更流畅 |
 
+## 项目地址
+
+<https://github.com/wangxinpo777/langchain-playground>
+<https://gitee.com/wangxinpo/langchain-playground>
+
 ---
 
 ## 技术栈
