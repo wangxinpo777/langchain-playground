@@ -9,8 +9,11 @@ load_dotenv()
 
 # DeepSeek API 配置
 API_KEY = os.environ["LLM_API_KEY"]
-BASE_URL = "https://api.deepseek.com/v1"
-MODEL_NAME = "deepseek-chat"
+# BASE_URL = "https://api.deepseek.com/v1"
+# MODEL_NAME = "deepseek-chat"
+# 兼容模式配置（如果使用兼容模式的 API，请取消注释并注释掉上面的配置）
+BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+MODEL_NAME = "qwen3.6-plus"
 TEMPERATURE = 0
 
 # 文本切分参数
